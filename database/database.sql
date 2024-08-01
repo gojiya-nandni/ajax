@@ -1,0 +1,19 @@
+DROP DATABASE IF EXISTS `Userdb`;
+CREATE DATABASE `Userdb`;
+USE `Userdb`;
+
+CREATE TABLE `Users`(
+    `Id` INT PRIMARY KEY AUTO_INCREMENT,
+    `Name` VARCHAR(100) NOT NULL,
+    `Password` VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE `UserDetail`(
+    `Id` INT PRIMARY KEY AUTO_INCREMENT,
+    `UserId` INT NOT NULL,
+    `FirstName` VARCHAR(50) NOT NULL,
+    `LastName` VARCHAR(50) NOT NULL,
+    `Email` VARCHAR(50) NOT NULL,
+    `Address` VARCHAR(100) NOT NULL,
+    FOREIGN KEY(`UserId`) REFERENCES `Users`(`Id`)
+);
